@@ -37,8 +37,10 @@ export default {
   },
   methods: {
     handleSend(){
-      ElMessageBox.confirm('确定重置绑定?')
-          .then(() => {
+      ElMessageBox.confirm('确定重置绑定?',{
+        confirmButtonText: "确定",
+        cancelButtonText: "取消"
+      }).then(() => {
             ResetBound({name: this.user.name}).then(() => this.handleClose())
           })
     },
