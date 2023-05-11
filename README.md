@@ -2,6 +2,12 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## 下载
+
+```
+git clone https://github.com/Kidd9561/userlist.git
+```
+
 ## 设置
 
 输出端口在`viote.config.js`文件中的`serve.port参数中，默认端口5173`。
