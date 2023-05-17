@@ -21,7 +21,7 @@
 
 <script>
 
-import {ElMessageBox} from "element-plus"
+import {ElMessage, ElMessageBox} from "element-plus"
 import {ResetBound} from "../api/tableApi.js"
 
 export default {
@@ -41,7 +41,14 @@ export default {
         confirmButtonText: "确定",
         cancelButtonText: "取消"
       }).then(() => {
-            ResetBound({name: this.user.name}).then(() => this.handleClose())
+            ResetBound({name: this.user.name}).then(() => {
+              ElMessage({
+                showClose: true,
+                message: '重新绑定成功',
+                type: 'success'
+              })
+              this.handleClose()
+            })
           })
     },
     handleClose() {

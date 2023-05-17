@@ -56,8 +56,6 @@ export default {
         return;
       }
       if(this.newPasswd !== this.confirmPasswd){
-        console.log(this.newPasswd)
-        console.log(this.confirmPasswd)
         ElMessage({
           showClose: true,
           message: '两次输入密码不相同',
@@ -70,7 +68,15 @@ export default {
         name: this.user.name,
         passwd: passwdSha1
       }
-      ModifyPasswd(sendParam).then(() => this.handleClose())
+      ModifyPasswd(sendParam).then(() => {
+        ElMessage({
+          showClose: true,
+          message: '修改密码成功',
+          type: 'success'
+        })
+        return;
+        this.handleClose()
+      })
     },
     handleClose() {
       Object.assign(this.$data,this.$options.data())

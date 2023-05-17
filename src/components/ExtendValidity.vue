@@ -31,6 +31,7 @@
 
 <script>
 import {ExtendValidity} from "../api/tableApi.js"
+import {ElMessage} from "element-plus";
 export default {
   name:"extendValidity",
   props:{
@@ -65,7 +66,14 @@ export default {
         name: this.user.name,
         day: this.value
       }
-      ExtendValidity(params).then(() => this.handleClose())
+      ExtendValidity(params).then(() => {
+        ElMessage({
+          showClose: true,
+          message: '续费成功',
+          type: 'success'
+        })
+        this.handleClose()
+      })
     },
     handleClose() {
       this.closeDialog();

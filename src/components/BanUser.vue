@@ -41,7 +41,6 @@ export default {
   },
   methods: {
     handleClose() {
-      console.log("sent")
       this.closeDialog();
     },
   }

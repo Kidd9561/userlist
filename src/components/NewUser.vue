@@ -112,7 +112,14 @@ export default {
         return;
       }
       this.user.validity_period = this.value
-      CreateUser(this.user).then(() => this.handleClose())
+      CreateUser(this.user).then(() => {
+        ElMessage({
+          showClose: true,
+          message: '添加用户成功',
+          type: 'success'
+        })
+        this.handleClose()
+      })
     },
     handleClose() {
       Object.assign(this.$data,this.$options.data())
